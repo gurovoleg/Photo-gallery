@@ -1,0 +1,16 @@
+.main-container {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.layoutEmptyCenterWrapper{
+	min-height: 100vh;
+}
+
+.LayoutCenterEmpty {
+	min-width: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}

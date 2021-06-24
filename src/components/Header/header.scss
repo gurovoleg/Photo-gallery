@@ -1,0 +1,33 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  box-shadow: 0 10px 10px -5px rgba(0,0,0, 0.2);
+  background: #FFF;
+  font-family: 'Yesteryear', cursive;
+  font-size: 30px;
+}
+
+.main-header--fixed {
+	position: fixed;
+	top:0;
+	right:0; left: 0;
+	z-index: 10;
+}
+
+.main-header__user {
+  display: flex;
+  align-items: center;
+}
+
+.main-header__logo {
+  &-title {
+    margin-left: 5px
+  }
+}
+
+.main-header__link {
+  font-family: 'Calibri', cursive;
+  font-size: 20px;
+}
