@@ -7,16 +7,13 @@ import { Collections } from 'Components'
 
 const CollectionsPage = ({ history, total, perPage = 10, urlPage, match }) => {
 
-  console.log('%c MATCH', 'background: orange', match)
-  console.log('%c Location', 'background: orange', location)
-
   // локальный state для текущей страницы (получаем из url)
   const [activePage, setActivePage] = useState(urlPage)
 
   // задаем url с параметрами page и per_page
-  // useEffect(() => {
-  //   history.push(`collections?page=${activePage}&per_page=${perPage}`)
-  // }, [activePage])
+  useEffect(() => {
+    history.push(`collections?page=${activePage}&per_page=${perPage}`)
+  }, [activePage])
 
   return (
     <React.Fragment>

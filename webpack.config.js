@@ -10,7 +10,7 @@ module.exports = (env) => {
   const getPlugins = () => {
     const plugins = [
       new HtmlWebpackPlugin({
-        title: 'MOLar',
+        title: 'Галерея',
         template: 'src/index.html'
       })
     ]
@@ -33,7 +33,7 @@ module.exports = (env) => {
     },
     devtool: mode === 'production' ? 'none' : 'source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'public'),
+      contentBase: path.join(__dirname, 'docs'),
       publicPath: '/',
       historyApiFallback: true,
       open: true
