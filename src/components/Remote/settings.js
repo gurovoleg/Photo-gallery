@@ -11,7 +11,7 @@ export const auth = {
   tokenUrl: 'https://unsplash.com/oauth/token',
 
   // redirect_uri: 'http://localhost:8080/oauth/callback',
-  redirect_uri: 'https://gurovoleg.github.io/photo-gallery/oauth/callback',
+  redirect_uri: 'https://gurovoleg.github.io/photo-gallery/#/oauth/callback',
   response_type: 'code',
   grant_type: 'authorization_code',
   scope: 'public+write_photos+read_user+write_user+write_followers+read_photos+write_likes', // права
