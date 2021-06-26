@@ -11,7 +11,7 @@ const App = () => {
         <Route path="/images/:imageId" component={Image} />
         <Route path="/user" component={User} />
         <Route path="/collections" component={Collections} />
-        <Route path="/oauth/callback" component={Auth} />
+        {/*<Route path="/oauth/callback" component={Auth} />*/}
         <Route component={Home} />
       </Switch>
     </BaseLayout>
