@@ -9,6 +9,8 @@ const Home = ({ history, total, perPage = 15, urlPage, match }) => {
   // локальный state для текущей страницы (получаем из url)
   const [activePage, setActivePage] = useState(urlPage)
 
+  console.log('%c match ', 'color:white;background:blue', match, location)
+
   // задаем новый url с параметрами page и per_page
   useEffect(() => {
     history.push(`?page=${activePage}&per_page=${perPage}`)
