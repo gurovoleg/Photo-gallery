@@ -8,23 +8,26 @@ class UpButton extends React.Component {
     offset: this.props.visible || 50
   }
 
-  componentDidMount () {
-    window.addEventListener('scroll', this.handleScroll)
+  componentDidUpdate (prevProps, prevState) {
+    if (this.props.target && prevProps.target !== this.props.target) {
+      this.props.target.addEventListener('scroll', this.handleScroll)
+    }
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
+    this.props.target.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll = () => {
-    this.setState({ visible: window.pageYOffset > this.state.offset })
+    // console.log('handleScroll', this.props.target.scrollTop)
+    this.setState({ visible: this.props.target.scrollTop > this.state.offset })
   }
 
   scrollTop = (endPos, step) => {
     setTimeout(() => {
       if (endPos > 0) {
         const newPos = endPos - 1 * step
-        window.scroll(0, newPos)
+        this.props.target.scroll(0, newPos)
         this.scrollTop(newPos, step + 2)
       }
     }, 5)
@@ -38,7 +41,7 @@ class UpButton extends React.Component {
         size="big"
         color="black"
         className={this.state.visible ? 'upButton upButton--visible' : 'upButton'}
-        onClick={() => this.scrollTop(window.pageYOffset, 1)}
+        onClick={() => this.scrollTop(this.props.target.scrollTop, 1)}
       />
     )
   }

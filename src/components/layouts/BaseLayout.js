@@ -9,10 +9,11 @@ import * as storage from 'Utils/storage'
 class BaseLayout extends React.Component {
   state = {
     headerHeight: null,
-    documentHeight: document.documentElement.clientHeight
+    documentHeight: document.documentElement.clientHeight,
   }
 
   headerRef = React.createRef()
+  wrapperRef = React.createRef() // ссылка для обертки с контентом (используем для кнопки прокрутки вверх)
 
   getProfile () {
     if (this.props.token && !this.props.profile) {
@@ -51,10 +52,10 @@ class BaseLayout extends React.Component {
     return (
       <Fragment>
         <Header fixed headerRef={this.headerRef} profile={this.props.profile} />
-        <UpButton />
+        <UpButton target={this.wrapperRef.current} />
 
         {/* Обертка для позиционирования контейнера и скролла (отключен у body) */}
-        <div style={{ marginTop: headerHeight, height: containerHeight, overflowY: 'auto' }}>
+        <div ref={this.wrapperRef} style={{ marginTop: headerHeight, height: containerHeight, overflowY: 'auto' }}>
           <Container className="main-container">
             {this.props.children}
           </Container>

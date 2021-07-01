@@ -9,6 +9,8 @@ import configureStore, { history } from './utils/configureStore'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 
+import ico from './camera.ico'
+
 const store = configureStore()
 
 ReactDOM.render(

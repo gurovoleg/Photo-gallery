@@ -28,8 +28,8 @@ module.exports = (env) => {
     entry: './src/index.js',
     output: {
       path: path.join(__dirname, 'docs'),
-      filename: mode === 'production' ? 'js/main-[contenthash:8].js' : undefined,
-      // publicPath: '/'
+      filename: mode === 'production' ? 'js/main-[contenthash:8].js' : 'js/main.js',
+      publicPath: '/'
     },
     devtool: mode === 'production' ? 'none' : 'source-map',
     devServer: {
@@ -59,16 +59,14 @@ module.exports = (env) => {
           exclude: /node_modules/,
           loader: 'babel-loader'
         },
-        // images
         {
-          test: /\.(jpg|jpeg|gif|png|svg)$/,
+          test: /\.(jpg|jpeg|gif|png|svg|ico)$/,
           use: [{
             loader: 'file-loader',
             options: {
-              outputPath: 'images',
-              name: '[name]-[sha1:hash:7].[ext]' // [имя файла]-[один хэш этого файла и первые 7 знаков].[расширение]
-            }
-          }]
+              name: mode === 'production' ? '[name].[ext]' : '[name]-[sha1:hash:7].[ext]',
+              outputPath: 'images'
+            }}]
         },
         // fonts
         {

@@ -56,7 +56,7 @@ class Transition extends React.Component {
     const { children, items, ...rest } = this.props
     const getKey = checkKeys(this.props.keys)
 
-    console.log('render', this.state.prevItems, this.state.items)
+    // console.log('render', this.state.prevItems, this.state.items)
 
     // Проверяем, что передана функция в качестве children
     if (typeof children !== 'function') {

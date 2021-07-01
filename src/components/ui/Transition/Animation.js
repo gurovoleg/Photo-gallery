@@ -21,7 +21,7 @@ class Animation extends React.Component {
 
   // Отслеживаем изменения props и возвращаем данные для state
   static getDerivedStateFromProps (nextProps, state) {
-    console.log('%c getDerivedStateFromProps ', 'color:white;background:blue', state, nextProps)
+    // console.log('%c getDerivedStateFromProps ', 'color:white;background:blue', state, nextProps)
     // Проверка для группы данных: пропускаем только действия перехода entering и exiting, а так же сравниваем с предыдущим действием, чтобы не повторять переход
     // значение предыдущего действием обновлем здесь же ниже
     if ((nextProps.group && nextProps.action !== state.prevAction && nextProps.action !== 'ready') ||

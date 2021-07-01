@@ -31,6 +31,7 @@ const Header = ({ fixed, headerRef, redirect, profile, logout }) => {
     setActive(getMenuItem(entity))
   }, [entity])
 
+
   return (
     <div ref={headerRef} className={fixed ? 'main-header main-header--fixed' : 'main-header'}>
 
