@@ -1,13 +1,14 @@
 import React from 'react'
 import { Pagination as PaginationUI } from 'semantic-ui-react'
+import { withRouter } from "react-router-dom"
 
-const Pagination = ({ active, total, position = 'center', onChange }) => {
+const Pagination = ({ active, total, perPage = 15, position = 'center', history }) => {
   if (!total) {
     return null
   }
 
   const handlePageChange = (e, props = {}) => {
-    onChange(props.activePage || active)
+    history.push(`?page=${props.activePage}&per_page=${perPage}`)
   }
 
   return (
@@ -25,4 +26,4 @@ const Pagination = ({ active, total, position = 'center', onChange }) => {
   )
 }
 
-export default Pagination
+export default withRouter(Pagination)

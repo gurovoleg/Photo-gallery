@@ -18,5 +18,5 @@ const mapStateToProps = (state, props) => ({
 })
 
 export default withRouter(connect(mapStateToProps)(withRemoteData({
-  url: (props) => `collections${props.location.search}`, entity: entities.collections
+  url: (props) => `collections${props.location.search || props.defaultSearch}`, entity: entities.collections
 })(Collections)))

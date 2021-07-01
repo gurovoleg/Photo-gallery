@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import * as selectors from 'Selectors'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Pagination } from 'Components/ui'
 import { Collections } from 'Components'
 
-const CollectionsPage = ({ history, total, perPage = 10, urlPage, match }) => {
-
-  // локальный state для текущей страницы (получаем из url)
-  const [activePage, setActivePage] = useState(urlPage)
-
-  // задаем url с параметрами page и per_page
-  useEffect(() => {
-    history.push(`collections?page=${activePage}&per_page=${perPage}`)
-  }, [activePage])
+const CollectionsPage = ({ total, perPage = 12, urlPage }) => {
 
   return (
     <React.Fragment>
@@ -21,12 +13,12 @@ const CollectionsPage = ({ history, total, perPage = 10, urlPage, match }) => {
       <span>{total}</span>
 
       <Pagination
-        active={activePage}
-        onChange={setActivePage}
+        active={urlPage}
+        perPage={perPage}
         total={Math.floor(total / perPage)}
       />
 
-      <Collections />
+      <Collections defaultSearch={`?page=${urlPage}&per_page=${perPage}`} />
 
     </React.Fragment>
   )

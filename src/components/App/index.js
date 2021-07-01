@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import BaseLayout from 'Components/layouts/BaseLayout'
 import { Home, User, Collections, Auth } from 'Pages'
 import { Image } from 'Components'

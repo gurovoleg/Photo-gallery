@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Pagination, Transition } from 'Components/ui'
 import { Gallery } from 'Components'
 import { withRouter } from 'react-router-dom'
 import * as selectors from 'Selectors'
 
-const Home = ({ history, total, perPage = 15, urlPage, match }) => {
-  // локальный state для текущей страницы (получаем из url)
-  const [activePage, setActivePage] = useState(urlPage)
-
-  // задаем новый url с параметрами page и per_page
-  useEffect(() => {
-    history.push(`?page=${activePage}&per_page=${perPage}`)
-  }, [activePage])
+const Home = ({ total, perPage = 15, urlPage }) => {
 
   return (
     <React.Fragment>
@@ -20,13 +13,14 @@ const Home = ({ history, total, perPage = 15, urlPage, match }) => {
       <span><h1>Все фотографии</h1></span>
       <span>{total}</span>
 
+      {/* Активную страницу селектор берет из url */}
       <Pagination
-        active={activePage}
-        onChange={setActivePage}
+        active={urlPage}
         total={Math.floor(total / perPage)}
+        perPage={perPage}
       />
 
-      <Gallery />
+      <Gallery defaultSearch={`?page=${urlPage}&per_page=${perPage}`} />
 
     </React.Fragment>
   )

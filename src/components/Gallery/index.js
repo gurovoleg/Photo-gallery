@@ -21,5 +21,5 @@ const mapStateToProps = (state, props) => ({
 })
 
 export default withRouter(withRemoteData({
-  url: (props) => `photos${props.location.search}`, entity: entities.images
+  url: (props) => `photos${props.location.search || props.defaultSearch}`, entity: entities.images
 })(connect(mapStateToProps)(Gallery)))

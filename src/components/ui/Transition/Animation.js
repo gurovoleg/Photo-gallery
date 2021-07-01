@@ -28,7 +28,7 @@ class Animation extends React.Component {
       // Проверка для одиночных данных: проверяем, что обновились входные данные (может бы все что угодно - true/false или набор данных для страницы)
       // а так же исключаем локальный статус entering и exiting, чтобы не повторять переход
       (!nextProps.group && nextProps.data !== state.data && state.status === 'ready')) {
-      // console.log('%c getDerivedStateFromProps ', 'color:white;background:red')
+
       return {
         // Задаем статус для перехода
         status: nextProps.group ? nextProps.action : nextProps.data && !state.visible ? 'entering' : 'exiting',
