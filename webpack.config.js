@@ -29,7 +29,7 @@ module.exports = (env) => {
     output: {
       path: path.join(__dirname, 'docs'),
       filename: mode === 'production' ? 'js/main-[contenthash:8].js' : 'js/main.js',
-      publicPath: '/'
+      // publicPath: './'
     },
     devtool: mode === 'production' ? 'none' : 'source-map',
     devServer: {
